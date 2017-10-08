@@ -54,9 +54,9 @@ int maxTemp = 120;  // used for setting the "max" temperature
 int minTemp = 40;   // used for setting the "min" temperature
 int tempThreshold = 60; // used for setting the threshold for temperature
 
-//#include <Servo.h>  // servo library
+#include <Servo.h>  // servo library
 
-//Servo servo1; // servo control object
+Servo servo1; // servo control object
 
 
 // Load the LiquidCrystal library
@@ -71,7 +71,7 @@ void setup() {
   lcd.begin(17, 2);  // Initialize the 16x2 LCD
   lcd.clear();       // Clear any old data displayed on the LCD
 
-  //servo1.attach(servoPin, 900, 2100);   // connect servo with a minimum pulse width of 900
+  servo1.attach(servoPin, 900, 2100);   // connect servo with a minimum pulse width of 900
                                         // and a maximum pulse width of 2100
 
   pinMode(motorPin, OUTPUT);  // set up the pin as an OUTPUT
@@ -83,8 +83,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  data_display();
-  //analog_thermometer();
+  //data_display();
+  analog_thermometer();
   //light_tracker();
   //alarm_system();
   //my_design();
@@ -116,7 +116,6 @@ void data_display() {
 
   delay(100); // check the temperature every 0.1 second
 
-  Serial.println(degreesF);
 }
 
 void analog_thermometer()
@@ -138,7 +137,7 @@ void analog_thermometer()
   lcd.print("Servo: ");
   lcd.print(position);
 
-//  servo1.write(position); // tell servo to go to specific position
+  servo1.write(position); // tell servo to go to specific position
 
   delay(100);
 }
