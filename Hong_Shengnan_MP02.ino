@@ -83,11 +83,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  //data_display();
+  data_display();
   //analog_thermometer();
   //light_tracker();
   //alarm_system();
-  my_design();
+  //my_design();
 
 }
 
@@ -116,6 +116,7 @@ void data_display() {
 
   delay(100); // check the temperature every 0.1 second
 
+  Serial.println(degreesF);
 }
 
 void analog_thermometer()
